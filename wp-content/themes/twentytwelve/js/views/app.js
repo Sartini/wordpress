@@ -55,7 +55,9 @@ window.AppView = Backbone.View.extend({
 	},
 	pageIdToBody: function(slug){
 		slug = this.cleanSlugs(slug);
-
+		slug = (slug=='')?'homePage':slug
+		console.log (slug);
+		debugger;
 		$('body').attr('id', slug)
 	},
 	activateMenu: function(fragment){

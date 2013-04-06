@@ -91,7 +91,7 @@
             js/routes/app;
             js/views/app;
             js/views/page;
-            js/vieww/home
+            js/views/home
         ");
     ?>
 

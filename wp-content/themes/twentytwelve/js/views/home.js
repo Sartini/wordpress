@@ -4,6 +4,6 @@ window.HomeView = Backbone.View.extend({
 		
 	},
 	initialize: function(){
-		this.homeGallery = new GalleryView({el : '#homeGallery' }, true);			
+
 	}
 });
