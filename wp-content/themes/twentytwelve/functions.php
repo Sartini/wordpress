@@ -522,3 +522,57 @@ if ( !function_exists(curPageURL)){
     return $pageURL;
   }
 }
+
+add_oauth_method('sayHello', create_function('$request, $userid, $username', 'return "Hello {$username}!";'));
+
+
+
+add_action( 'init', 'create_post_type_autores' );
+
+
+
+
+/** POST TYPE Autor **/
+function create_post_type_autores() {
+ 
+	
+	/** Labels customizados para o tipo de post **/
+    $labels = array(
+	    'name' => _x('Autor', 'post type general name'),
+	    'singular_name' => _x('Autor', 'post type singular name'),
+	    'add_new' => _x('Adicionar Novo', 'Autor'),
+	    'add_new_item' => __('Adicionar novo Autor'),
+	    'edit_item' => __('Editar Autor'),
+	    'new_item' => __('Novo Autor'),
+	    'all_items' => __('Todos de Autor'),
+	    'view_item' => __('Ver Autor'),
+	    'search_items' => __('Pesquisar Autor'),
+	    'not_found' =>  __('Nenhum item encontrado.'),
+	    'not_found_in_trash' => __('Nenhum item de encontrado na lixeira.'),
+	    'parent_item_colon' => '',
+	    'menu_name' => 'Autor'
+    );
+    
+    /**  Registrando o tipo de post, passando os labels e parâmetros de controle **/
+    register_post_type( 'autores', array(
+	    'labels' => $labels,
+	    'public' => true,
+	    'publicly_queryable' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+	    'has_archive' => 'autores',
+	    'rewrite' => array(
+		 'slug' => 'autores',
+		 'with_front' => false,
+	    ),
+	    'capability_type' => 'post',
+	    'has_archive' => true,
+	    'hierarchical' => false,
+	    'menu_position' => null,
+	    'supports' => array('title', 'thumbnail', 'editor'),
+	    'taxonomies' => array('post_tag')
+	    )
+    );
+	
+		
+}
